@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    margin-bottom: 25px;
+    -webkit-box-shadow: 0 5px 6px -7px rgba(0, 0, 0, .53);
+    -moz-box-shadow: 0 5px 6px -7px rgba(0, 0, 0, .53);
+    box-shadow: 0 5px 6px -7px rgba(0, 0, 0, .53);
+}
+
+h1 {
+    font-size: 30px;
+    width: 55%;
+    margin: 0 auto;
+    padding: 15px;
+    text-align: center;
+    border: black 2px solid;
+    border-radius: 5px;
+    background-color: #f6f6f6;
+}
+
+fieldset {
+    margin: 5px;
+    padding: 15px;
+    border: rgb(97, 97, 97) 2px solid;
+    border-radius: 2px;
+    background-color: #bed732b2;
+}
+
+#background-white {
+    background-color: white;
+}
+
+.containerFilter {
+    padding: 10px;
+    border: solid 2px #bed732b2;
+    border-radius: 10px;
+}
+
+.border-primary {
+    margin: 25px;
+}
+
+#sedeHidden,
+#codeLanguaje,
+#itTeacher,
+#englishTeacher,
+#algebraTeacher {
+    display: none;
+}
+
+#warnings {
+    width: 300px;
+    margin: auto;
+    margin: 20px;
+    text-align: center;
+    color: red;
+}
+
+svg {
+    width: 21px;
+}
+
+@media screen and (max-width: 1200px) {
+    body {
+        background-image: none;
+    }
+}

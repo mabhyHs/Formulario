@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Formulario de Inscripción</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+    </nav>
+    <h1>Formulario de Inscripción</h1>
+    <div class="container mt-5 p-5">
+        <div id="container" class="row">
+            <div class="col-md-6 inscriptionMessage">
+                <form id="applicationForm">
+                    <fieldset>
+                        <legend class="mb-4">Datos del Personales</legend>
+                        <p>(*) Campos Obligatorios</p>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-lg-4 col-form-label">Nombre/s: (*)</label>
+                            <div class="col-sm-8 col-lg-8">
+                                <input type="text" id="firstName" name="firstName" class="form-control" placeholder="Primer Nombre">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-lg-4 col-form-label">Apellido/s: (*)</label>
+                            <div class="col-sm-8 col-lg-8">
+                                <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Ingrese su Apellido">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-lg-4 col-form-label">Teléfono: (*)</label>
+                            <div class="col-sm-8 col-lg-8">
+                                <input type="tel" id="telephone" name="telephone" class="form-control" placeholder="Número de Teléfono (sólo Nros)" pattern="^([0-9])*$">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-lg-4 col-form-label">Documento de identidad: (*)</label>
+                            <div class="col-sm-8 col-lg-8">
+                                <input type="number" id="dni" name="dni" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-lg-4 col-form-label">E-mail: (*)</label>
+                            <div class="col-sm-8 col-lg-8">
+                                <input type="mail" id="mail" name="mail" class="form-control" placeholder="ejemplo@ejemplo.com" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$">
+                            </div>
+                        </div>
+
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Seleccione Curso, turno y modalidad</legend>
+                        <!-- Cursos -->
+                        <div class="form-group">
+                            <label for="courses">Curso (*)</label>
+                            <select class="form-control" id="courses" name="courses" onchange="showOptionsHidden()"> 
+                          <option value="" disabled selected></option>
+                          <option value="Álgebra" name="algebra" >Algebra</option>
+                          <option value="Inglés" name="ingles">Inglés</option>
+                          <option value="Informática" name="informatica">Informática</option>
+                        </select>
+                        </div>
+
+                        <!-- Lenguajes disponibles (Hidden) -->
+                        <div class="form-group" id="codeLanguaje">
+                            <label for="languaje">Lenguaje</label>
+                            <select class="form-control">
+                          <option value="" disabled selected></option>
+                          <option>Java</option>
+                          <option>JavaScript</option>
+                          <option>Python</option>
+                        </select>
+                        </div>
+
+                        <!-- Turnos -->
+                        <div class="form-group">
+                            <label for="ClassShift">Turno</label>
+                            <select class="form-control" id="shift" name="shift">
+                          <option value="" disabled selected></option>
+                          <option value="mañana" name="mañana" >Mañana</option>
+                          <option value="tarde" name="tarde" >Tarde</option>
+                          <option value="noche" name="noche">Noche</option>
+                        </select>
+                        </div>
+
+                        <!-- Modalidad -->
+                        <div class="form-group">
+                            <label for="modality">Modalidad</label>
+                            <select class="form-control" id="modality" name="modality" onchange="optionsPlaces()">
+                            <option value="" disabled selected></option>
+                            <option value="online" name="online" >Online</option>
+                            <option value="presencial" name ="presencial">Presencial</option>
+                        </select>
+
+                            <!-- Sede (Hidden) -->
+                            <div class="form-group" id="sedeHidden">
+                                <label for="sede">Sede</label>
+                                <select class="form-control" id="sede" name="sede">
+                              <option value="" disabled selected></option>
+                              <option value="cordoba" name="cordoba">Córdoba</option>
+                              <option value="bsas" name="bsas">BsAs</option>
+                              <option value="corrientes" name="corrientes">Corrientes</option>
+                            </select>
+                            </div>
+
+                            <!-- Profesor y aux Álgebra (Hidden) -->
+                            <div id="algebraTeacher">
+                                <div class="card border-primary">
+                                    <div class="card-header">Prof. Titular</div>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Pedro López</h4>
+                                    </div>
+                                </div>
+                                <div class="card-body card border-primary">
+                                    <h4 class="card-title">Auxiliar</h4>
+                                    <p>Leonor Ayala</p>
+                                </div>
+                            </div>
+
+                            <!-- profesor Ingles -->
+                            <div class="card border-primary" id="englishTeacher">
+                                <div class="card-header">Prof. Titular</div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Maria Gonzalez</h4>
+                                </div>
+                            </div>
+
+                            <!-- Profesor Informática -->
+                            <div class="card border-primary" id="itTeacher">
+                                <div class="card-header">Prof. Titular</div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Esteban Quito</h4>
+                                </div>
+                            </div>
+                    </fieldset>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success w-100 d-block">Inscribirse</button>
+                    </div>
+                </form>
+                </div>
+                <!-- Lista de inscriptos y filtros -->
+                <div class="col-md-6">
+                    <h2 id="listEnrolledTitle" class="mb-4">Lista de inscriptos</h2>
+                    <fieldset id="background-white">
+                        <div class="containerFilter">
+                            <h4>Filtrar Por:</h4>
+                            <div class="row my-2">
+                                <div class="col-md-4">
+                                    <select name="" id="FiltroCurso" class="custom-select">
+                                    <option value="" disabled selected>Curso</option>
+                                    <option value="Álgebra" name="algebra" >Algebra</option>
+                                    <option value="Inglés" name="ingles">Inglés</option>
+                                    <option value="Informática" name="informatica">Informática</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <select name="" id="FiltroTurno" class="custom-select">
+                                    <option value="" disabled selected>Turno</option>
+                                    <option value="mañana" name="mañana" >Mañana</option>
+                                    <option value="tarde" name="tarde" >Tarde</option>
+                                     <option value="noche" name="noche">Noche</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <select name="" id="FiltroModalidad" class="custom-select">
+                                    <option value="" disabled selected>Modalidad</option>
+                                    <option value="online" name="online" >Online</option>
+                                    <option value="presencial" name ="presencial">Presencial</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <ul id="enrolled" class="list-group list-enrolled"></ul>
+                </div>
+            </div>
+            </fieldset>
+            <!--.row-->
+        </div>
+        <!--.container-->
+
+        <script src="./js/main.js"></script>
+
+</body>
+
+</html>
